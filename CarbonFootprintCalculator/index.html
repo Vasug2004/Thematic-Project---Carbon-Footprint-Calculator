@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carbon Footprint Tracker</title>
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="Styles.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body style="background-color: #101E0E;">
+
+  <nav class="navbar navbar-expand-lg dnb">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="references.html">References</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="about.html">About</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <div class="container text-center">
+    <div class="row">
+      <div class="col">
+        <h1>Carbon Footprint Calculator</h1>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        <p>Welcome to our Carbon Footprint Calculator, where you can take a step towards understanding and reducing your
+          environmental impact. By simply entering the necessary information, you can obtain a rough estimate of your
+          carbon footprint, shedding light on the emissions associated with your lifestyle choices. Whether it's your
+          transportation habits, energy consumption, or dietary preferences, this tool offers insight into the carbon
+          dioxide emissions produced as a result. Armed with this knowledge, you can make informed decisions to minimize
+          your carbon footprint and contribute to a more sustainable future for our planet. Take the first step towards
+          environmental responsibility by calculating your carbon footprint today.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab navigation -->
+  <!--See GitHub issue #7 for details on how Id's need written to be picked up by main.js-->
+  <div id="form" class="p-3 m-3 rounded">
+    <div class="container text-center">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" id="travel-tab" data-bs-toggle="tab" data-bs-target="#travel" type="button"
+            role="tab" aria-controls="travel" aria-selected="true">Travel</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab"
+            aria-controls="home" aria-selected="false">Home</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="flights-tab" data-bs-toggle="tab" data-bs-target="#flights" type="button"
+            role="tab" aria-controls="flights" aria-selected="false">Flights</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="recycle-tab" data-bs-toggle="tab" data-bs-target="#recycle" type="button"
+            role="tab" aria-controls="recycle" aria-selected="false">Recycle</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" id="diet-tab" data-bs-toggle="tab" data-bs-target="#diet" type="button" role="tab"
+            aria-controls="diet" aria-selected="false">Diet</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="tab-content" id="myTabContent">
+      <!-- Travel Tab -->
+      <div class="tab-pane fade show active" id="travel" role="tabpanel" aria-labelledby="travel-tab">
+        <div class="container text-center" id="Travel">
+          <p></p>
+
+          <div class="mb-3">
+            <label for="CommuterMiles" class="form-label" id="CommuterMilesLabel">How Far do you Commute/Travel Per Week
+              (Miles)?</label>
+            <input type="number" class="form-control" id="CommuterMiles" aria-describedby="CommuterMiles">
+          </div>
+          <div class="p-3"></div>
+          <p>What Form of Transport do you Take?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="transport" id="transportR1" value="car">
+            <label class="form-check-label" for="car">
+              Car
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="transport" id="transportR2" value="tram">
+            <label class="form-check-label" for="tram">
+              Tram
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="transport" id="transportR3" value="bus">
+            <label class="form-check-label" for="bus">
+              Bus
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="transport" id="transportR4" value="train">
+            <label class="form-check-label" for="train">
+              Train
+            </label>
+            <p>Did you know a double-decker bus can replace up to 50 motorised vehicles?!</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Home Tab -->
+      <div class="tab-pane fade" id="home" role="tabpanel" aria-labelledby="home-tab">
+        <div class="container text-center" id="Home">
+          <div class="mb-3">
+            <label for="electricBill" class="form-label" id="electricBillLabel">Please Enter your Monthly Electric
+              Bill:</label>
+            <input type="number" class="form-control" id="electricBill" aria-describedby="electricBill">
+          </div>
+          <div class="mb-3">
+            <label for="gasBill" class="form-label" id="gasBillLabel">Please Enter your Monthly Gas Bill:</label>
+            <input type="number" class="form-control" id="gasBill" aria-describedby="gasBill">
+          </div>
+          <div class="mb-3">
+            <label for="oilBill" class="form-label" id="oilBillLabel">Please Enter your Monthly Oil Bill:</label>
+            <input type="number" class="form-control" id="oilBill" aria-describedby="oilBill">
+          </div>
+          <p>Using a lid on your pan while cooking can save your energy use while cooking up to 90%!</p>
+        </div>
+      </div>
+
+      <!-- Flights Tab -->
+      <div class="tab-pane fade" id="flights" role="tabpanel" aria-labelledby="flights-tab">
+        <div class="container text-center" id="Flights">
+          <!-- Flights form content -->
+          <div class="mb-3">
+            <label for="lessThanFour" class="form-label" id="lessThanFourLabel">Please enter the number of flights that
+              you've taken in the past year that were four hours or less:</label>
+            <input type="number" class="form-control" id="lessThanFour" aria-describedby="lessThanFour">
+          </div>
+
+          <div class="mb-3">
+            <label for="moreThanFour" class="form-label" id="moreThanFourLabel">Please enter the number of flights that
+              you've taken in the past year that were four hours or more:</label>
+            <input type="number" class="form-control" id="moreThanFour" aria-describedby="moreThanFour">
+          </div>
+          <p>Airplanes emit around 100 times more CO2 per hour than a shared bus or train ride!</p>
+        </div>
+      </div>
+
+      <!-- Recycle Tab -->
+      <div class="tab-pane fade" id="recycle" role="tabpanel" aria-labelledby="recycle-tab">
+        <div class="container text-center" id="Recycle">
+          <!-- Recycle form content -->
+
+
+        </div>
+        <div class="container text-center" id="RecycleMetal">
+          <div class="p-3"></div>
+          <p>Do you recycle metal?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="metal" id="metalR1" value="yes">
+            <label class="form-check-label" for="yes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="metal" id="metalR2" value="no">
+            <label class="form-check-label" for="no">
+              No
+            </label>
+          </div>
+        </div>
+        <div class="container text-center" id="RecyclePaper">
+          <div class="p-3"></div>
+          <p>Do you recycle paper?</p>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paper" id="paperR1" value="yes">
+            <label class="form-check-label" for="yes">
+              Yes
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="paper" id="paperR2" value="no">
+            <label class="form-check-label" for="no">
+              No
+            </label>
+            <p>The average person in the UK throws away around 400kg of waste each year!</p>
+          </div>
+        </div>
+      </div>
+      <!-- Diet Tab -->
+      <div class="tab-pane fade" id="diet" role="tabpanel" aria-labelledby="diet-tab">
+        <div class="container text-center" id="Diet">
+          <!-- Diet form content -->
+          <div class="mb-3">
+            <p>What option best describes your diet?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="diet" id="dietR1" value="omnivore">
+              <label class="form-check-label" for="dietR1">
+                Meat Lover (Diet heavy in meat)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="diet" id="dietR2" value="vegetarian">
+              <label class="form-check-label" for="dietR2">
+                Average (Good, well balanced diet)
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="diet" id="dietR3" value="vegan">
+              <label class="form-check-label" for="dietR3">
+                Vegan or Vegetarian (Excludes all animal products)
+              </label>
+            </div>
+          </div>
+
+          <!-- Second diet question -->
+          <div class="mb-3">
+            <p>How often do you consume fast food per week?</p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fastFood" id="fastFoodR1" value="rarely">
+              <label class="form-check-label" for="fastFoodR1">
+                Rarely or never
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fastFood" id="fastFoodR2" value="1-2">
+              <label class="form-check-label" for="fastFoodR2">
+                1-2 times per week
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="fastFood" id="fastFoodR3" value="3+">
+              <label class="form-check-label" for="fastFoodR3">
+                3 or more times per week
+              </label>
+              <p>Did you know a Big Mac's carbon footprint is equivalent to driving a car 8 miles?!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- Submit Button Hides and shows pages-->
+  <div class="container text-center " id="subButton">
+    <div class="row">
+      <div class="col">
+        <button id="mainBn" onclick="processForm()" type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <div id="warningBtn">
+        </div>
+    </div>
+  </div>
+
+  <!-- Results Section -->
+  <div id="results" style="display: none;">
+    <div class="container text-center">
+      <div class="row">
+        <div class="col">
+          <h1>Your results</h1>
+          <div id="output" class="row"> </div>
+          <!--User results go here->
+          <div>
+            <!--Pie Chart see chart.js-->
+          <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="col">
+          <h2> Big Contributors: </h2>
+          <h2> Elon Musk: </h2>
+          <h3> Over 2000 Tonnes[1]</h3>
+          
+          <h2> Taylor Swift: </h2>
+          <h3> Over 8000 Tonnes[2]</h3>
+       
+        </div>
+      </div>
+      <div class="row">
+        <canvas id="lineChart"></canvas>
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <script src="bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="bootstrap/js/main.js"></script>
+  <script src="assets/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,92 @@
+body {
+    color: #A9C6D7;
+}
+form {
+    margin-top: 20px; 
+}
+h1 {
+    margin: 0;
+    font-size: 3.6em;
+    font-family: 'Roboto', sans-serif;
+    color: #fcfbfa;
+}
+
+.navbar {
+    background-color: transparent;
+    border-left: 4px solid #4CAF50; 
+}
+.navbar-toggler {
+    background-color: #333; 
+    border: 1px solid #000000; 
+}
+p {
+    font-weight: bold;
+    color: #fcfbfa;
+}
+.col p {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: justify;
+    line-height: 1.5;
+}
+.navbar-nav {
+    margin-left: auto;
+}
+.nav-link {
+    color: #fff;
+    transition: border-bottom 0.3s ease;
+}
+form {
+    margin-top: 20px;
+    padding: 20px;
+    border: 2px solid #34af34;
+    border-radius: 10px; 
+}
+
+.form-label {
+    font-weight: bold;
+}
+
+.form-check-label {
+    font-weight: bold;
+}
+
+#form{
+    background-color: #361d39;
+    color: #fcfbfa;
+    
+}
+#mainBn{
+    background-color: #211123;
+    color: #fcfbfa;
+}
+#mainBn:hover{
+    background-color: #8e5a95;
+    color: #fcfbfa;
+} 
+
+.form-control,
+.form-select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+input.invalid{
+    border-color: red;
+     
+}
+label.invalid{
+    color:red;
+}
+p.invalid{
+    color:red;
+    font-style: bold;
+}
+#warningBtn{
+   
+    color: red;
+}
+#warning{
+   
+    color: red;
+}
